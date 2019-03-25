@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <assert.h>
 
-char* returnChar[50] = {'a','a','a','a','a','a','a','a','a','a','a'};
+char* returnChar[50];
 
-void fizzbuzz(int* test)
+char* fizzbuzz(int* test)
 {
   long long x, y, n;
   if (test != NULL)
@@ -49,11 +49,12 @@ void fizzbuzz(int* test)
 
 int main(int argc, const char* argv[])
 {
-  if (getopt(argc, argv, "t") == 't')
+  if (argc > 1 && argv[1] == "test")
   {
-    int intArray[] = {2,4,7};
-    fizzbuzz(intArray);
-    assert(returnChar[1]=='1');
+    char returnChar[50];
+    int intArray1[] = {2,4,7};
+    char* testPtr = fizzbuzz(intArray);
+    assert(testPtr[1]=='1');
     assert(returnChar[2]=='F'); // Fizz
     assert(returnChar[3]=='3');
     assert(returnChar[4]=='G'); // 'G' means FizzBuzz
